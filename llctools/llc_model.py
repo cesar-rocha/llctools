@@ -40,6 +40,14 @@ class LLCRegion:
                              dtype=self.dtype,shape=(self.Nlat,self.Nlon),
                              mode='r')
 
+        self.dx = np.memmap(self.grid_dir+'/DXC_'+self.grid_size,
+                             dtype=self.dtype,shape=(self.Nlat,self.Nlon),
+                             mode='r')
+
+        self.dy = np.memmap(self.grid_dir+'/DYC_'+self.grid_size,
+                             dtype=self.dtype,shape=(self.Nlat,self.Nlon),
+                             mode='r')
+
         try:
             self.z = np.memmap(self.grid_dir+'/RF.data',dtype=self.dtype,
                                shape=(self.Nz), mode='r')
